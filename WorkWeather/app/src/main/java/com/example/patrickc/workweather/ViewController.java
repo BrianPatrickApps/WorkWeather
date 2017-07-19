@@ -18,7 +18,7 @@ public class ViewController implements Serializable{
     private ImageView rainOverlay;
     private ImageView weatherOverlay;
 
-    protected ViewController(ImageView rainOverlay, ImageView weatherOverlay){
+    protected ViewController(ImageView rainOverlay, ImageView weatherOverlay,RelativeLayout mainScreen,RelativeLayout nurse){
         this.mainScreen = mainScreen;
         this.nurse = nurse;
         this.inputScreen = inputScreen;
@@ -50,20 +50,20 @@ public class ViewController implements Serializable{
 
     protected void showClouds(){
         //weatherOverlay.setImageResource();
-        //mainScreen.setBackgroundResource(R.drawable.background4_semi_clouded);
+        mainScreen.setBackgroundResource(R.drawable.background4_semi_clouded);
         nurse.setBackgroundResource(R.drawable.weather_halfclouds);
     }
 
     protected void showOvercast(){
         //weatherOverlay.setImageResource();
-        //mainScreen.setBackgroundResource(R.drawable.background3_clouded);
+        mainScreen.setBackgroundResource(R.drawable.background3_clouded);
         nurse.setBackgroundResource(R.drawable.weather_halfclouds);
     }
 
     protected void showRainMood(){
         //weatherOverlay.setImageResource();
         setRain();
-        //mainScreen.setBackgroundResource(R.drawable.background2_rain);
+        mainScreen.setBackgroundResource(R.drawable.background2_rain);
         nurse.setBackgroundResource(R.drawable.weather_rain);
     }
 
@@ -71,7 +71,7 @@ public class ViewController implements Serializable{
         //weatherOverlay.setImageResource();
         setRain();
         nurse.setBackgroundResource(R.drawable.weather_rain);
-        //mainScreen.setBackgroundResource(R.drawable.background1_thunderstorm);
+        mainScreen.setBackgroundResource(R.drawable.background1_thunderstorm);
     }
 
     protected void startUp(){

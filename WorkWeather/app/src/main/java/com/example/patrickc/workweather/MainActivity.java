@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ImageView>nurseArray;
     Counter counter;
     boolean sub;
+    RelativeLayout nurseLayout;
+    RelativeLayout backLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +44,19 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         db = new Database(this);
 
-        Button but = (Button)findViewById(R.id.a1);
-        Button but2 = (Button)findViewById(R.id.a2);
+        //Button but = (Button)findViewById(R.id.a1);
+        final Button but2 = (Button)findViewById(R.id.loginButton);
         changetoNurses();
-        but.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changetoMenu();
-            }
-        });
         but2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 changetoNurses();
+                but2.setEnabled(false);
+                but2.setVisibility(View.GONE);
             }
         });
         db = new Database(this);
-//        checkWeather();
+
         //Nurse Images
         nurse1 = (ImageView)findViewById(R.id.nurse1);
         nurse2 = (ImageView)findViewById(R.id.nurse2);
@@ -69,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         weather = (ImageView)findViewById(R.id.weatherOverlay);
         rainOverlay = (ImageView)findViewById(R.id.rainOverlay);
 
+        nurseLayout =(RelativeLayout)findViewById(R.id.nurseLayout);
+        nurseLayout =(RelativeLayout)findViewById(R.id.backgroundLayout);
 
         nurseArray = new ArrayList<>();
         nurseArray.add(nurse1);
@@ -81,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
         counter = new Counter();
 
-        viewController = new ViewController(rainOverlay,weather);
-
+        viewController = new ViewController(rainOverlay,weather,nurseLayout,backLayout);
+        checkWeather();
 
     }
 
@@ -122,28 +123,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkWeather(){
 
-//        Glide.with(this).load(R.drawable.animation_rain).into(rainOverlay);
+        Glide.with(this).load(R.drawable.animation_rain).into(rainOverlay);
         Double x = db.getMedian();
         if(x==0){
-            viewController.startUp();
+//            viewController.startUp();
         }
         else if(x == 1)
         {
             viewController.showThunder();
         }
-        else if(x ==2){
+        else if(x ==2 || x ==1.5){
             viewController.showRainMood();
         }
-        else if(x ==3)
+        else if(x ==3||x ==2.5)
         {
             viewController.stopRain();
             viewController.showOvercast();
         }
-        else if(x ==4){
+        else if(x ==4||x ==3.5){
             viewController.stopRain();
             viewController.showClouds();
         }
-        else if(x==5) {
+        else if(x==5||x ==4.5) {
             viewController.stopRain();
             viewController.showSun();
         }

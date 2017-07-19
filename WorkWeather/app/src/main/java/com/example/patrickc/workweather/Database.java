@@ -7,6 +7,7 @@ package com.example.patrickc.workweather;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.Serializable;
@@ -41,7 +42,7 @@ public class Database implements Serializable{
     }
 
     protected ArrayList<String> collectUsers(){
-        Cursor c = database.rawQuery("Select * from nurses WHERE shift_id = '"+ 1+"';",null);
+        Cursor c = database.rawQuery("Select * from nurses WHERE shift_id = '"+ getShiftNumber()+"';",null);
         ArrayList<String>theArray = new ArrayList<>();
         if(c.getCount() ==0){
             Toast.makeText(context, "Empty", Toast.LENGTH_SHORT).show();
@@ -59,7 +60,8 @@ public class Database implements Serializable{
     }
     //Gets the median
     protected double getAverage(double mood){
-        Cursor c = database.rawQuery("Select * from nurses WHERE shift_id = '"+ 1+"';",null);
+        Log.d("BB","Select * from nurses WHERE shift_id = '"+ getShiftNumber()+"';");
+        Cursor c = database.rawQuery("Select * from nurses WHERE shift_id = '"+ getShiftNumber()+"';",null);
         ArrayList<Double> theArray = new ArrayList<>();
         if(c.getCount() ==0){
         }
@@ -84,7 +86,7 @@ public class Database implements Serializable{
         String query = "INSERT into avgShift(`shift_id`,`average`,`date`)" +
                 "VALUES('" + shift + "','"+ median +"','"+ date +"');";
         database.execSQL(query);
-        String updateMedian = "UPDATE avgRoom set median = '"+ median +"' WHERE key_id = '"+1+"';";
+        String updateMedian = "UPDATE avgRoom set median = '"+ median +"' WHERE key_id = '"+getShiftNumber()+"';";
         database.execSQL(updateMedian);
         Toast.makeText(context, "Median Updated Thank you", Toast.LENGTH_SHORT).show();
     }
@@ -92,7 +94,7 @@ public class Database implements Serializable{
     //Collects the median of the shift
     protected double getMedian(){
         ArrayList<Double> theArray = new ArrayList<>();
-        Cursor c = database.rawQuery("Select * from avgRoom where key_id = '"+1+"';",null);
+        Cursor c = database.rawQuery("Select * from avgRoom where key_id = '"+getShiftNumber()+"';",null);
         if(c.getCount() ==0){
             return 0.0;
         }
@@ -103,8 +105,9 @@ public class Database implements Serializable{
                 theArray.add(median);
             }
         }
-
+        Log.d("BB",String.valueOf(theArray.get(0)));
         return theArray.get(0);
+
     }
 
     //gets called when the broadcast reciever fires

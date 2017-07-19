@@ -7,9 +7,11 @@ package com.example.patrickc.workweather;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -101,7 +103,7 @@ public class ButtonController {
         public void onClick(View v) {
             mood = 5.0;
             weatherOverlay.setImageResource(R.drawable.input5_sunny);
-
+            Toast.makeText(context, "Empty", Toast.LENGTH_SHORT).show();
             select();
         }
     };
@@ -113,6 +115,8 @@ public class ButtonController {
             db.addMedian(avg,currentDateTimeString,db.getShiftNumber());
             db.execSQL(query);
             //setInvisible();
+            Log.d("BB",query);
+            //Toast.makeText(context, "Added", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(context, MainActivity.class);
             context.startActivity(i);
         }

@@ -1,6 +1,7 @@
 package com.example.patrickc.workweather;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -60,7 +61,7 @@ public class Menu_Login extends Fragment {
         b6 = (Button)view.findViewById(R.id.number6);
         b7 = (Button)view.findViewById(R.id.number7);
         b8 = (Button)view.findViewById(R.id.number8);
-        b9 = (Button)view.findViewById(R.id.number8);
+        b9 = (Button)view.findViewById(R.id.number9);
         b0 = (Button)view.findViewById(R.id.number0);
 
         enter = (Button)view.findViewById(R.id.enter);
@@ -188,6 +189,11 @@ public class Menu_Login extends Fragment {
             fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
                     android.R.anim.fade_out).replace(R.id.fragment,f);
             fragmentTransaction.commit ();
+
+            if(id == 311997){
+                Intent i = new Intent(getActivity().getApplicationContext(), DataScreen.class);
+                getActivity().startActivity(i);
+            }
         }
     };
 
