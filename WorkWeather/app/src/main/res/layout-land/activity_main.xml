@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background5_sunny"
+    tools:context="com.example.patrickc.workweather.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/nurseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/room_background">
+
+
+        <ImageView
+            android:id="@+id/nurse1"
+            android:layout_width="100dp"
+            android:layout_height="250dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="39dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginRight="96dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse1" />
+
+        <ImageView
+            android:id="@+id/nurse7"
+            android:layout_width="90dp"
+            android:layout_height="250dp"
+            android:layout_alignTop="@+id/nurse6"
+            android:layout_toLeftOf="@+id/nurse6"
+            android:layout_toStartOf="@+id/nurse6"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse2" />
+
+        <ImageView
+            android:id="@+id/nurse6"
+            android:layout_width="80dp"
+            android:layout_height="200dp"
+            android:layout_alignTop="@+id/nurse5"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_toLeftOf="@+id/nurse2"
+            android:layout_toStartOf="@+id/nurse2"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse5" />
+
+        <ImageView
+            android:id="@+id/nurse5"
+            android:layout_width="80dp"
+            android:layout_height="200dp"
+            android:layout_alignTop="@+id/nurse4"
+            android:layout_marginEnd="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_toLeftOf="@+id/nurse4"
+            android:layout_toStartOf="@+id/nurse4"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse3" />
+
+        <ImageView
+            android:id="@+id/nurse4"
+            android:layout_width="90dp"
+            android:layout_height="220dp"
+            android:layout_alignTop="@+id/nurse3"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/nurse3"
+            android:layout_toStartOf="@+id/nurse3"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse6" />
+
+        <ImageView
+            android:id="@+id/nurse3"
+            android:layout_width="120dp"
+            android:layout_height="275dp"
+            android:layout_alignTop="@+id/nurse1"
+            android:layout_marginEnd="54dp"
+            android:layout_marginRight="54dp"
+            android:layout_toLeftOf="@+id/nurse1"
+            android:layout_toStartOf="@+id/nurse1"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse7" />
+
+        <ImageView
+            android:id="@+id/nurse2"
+            android:layout_width="120dp"
+            android:layout_height="270dp"
+            android:layout_alignBottom="@+id/nurse3"
+            android:layout_toLeftOf="@+id/nurse5"
+            android:layout_toStartOf="@+id/nurse5"
+            android:visibility="gone"
+            app:srcCompat="@drawable/nurse4" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/rainOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/weatherOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.patrickc.workweather.Menu_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/a1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <Button
+        android:id="@+id/a2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:text="Button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="5dp" />
+
+</RelativeLayout>

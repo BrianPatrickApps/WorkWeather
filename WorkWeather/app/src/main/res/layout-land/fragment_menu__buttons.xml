@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background5_sunny"
+    tools:context="com.example.patrickc.workweather.Menu_Buttons">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/room_background">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80FFFFFF">
+
+            <RelativeLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="500dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="150dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Stormy"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="Storm" />
+
+
+                <Button
+                    android:id="@+id/Rain"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/Stormy"
+                    android:text="Rain" />
+
+                <Button
+                    android:id="@+id/Overcast"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/Cloudy"
+                    android:text="Cast" />
+
+                <Button
+                    android:id="@+id/Cloudy"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/Sunny"
+                    android:text="Cloud" />
+
+                <Button
+                    android:id="@+id/Sunny"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Sun" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/inputWeather"
+                android:layout_width="500dp"
+                android:layout_height="100dp"
+                android:layout_alignLeft="@+id/linearLayout"
+                android:layout_alignStart="@+id/linearLayout"
+                android:layout_alignTop="@+id/linearLayout"
+                app:srcCompat="@drawable/input_1" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
