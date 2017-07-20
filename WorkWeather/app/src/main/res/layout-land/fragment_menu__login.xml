@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background5_sunny"
-    tools:context="com.example.patrickc.workweather.Menu_Login">
+    tools:context="com.example.patrickc.workweather.Menu_Login"
+    android:id="@+id/MenuLoginScreen">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -24,9 +25,9 @@
                 android:id="@+id/viewScreen"
                 android:layout_width="500dp"
                 android:layout_height="100dp"
+                android:layout_marginTop="153dp"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="238dp">
+                android:layout_centerHorizontal="true">
 
                 <Button
                     android:id="@+id/fingerprint"
@@ -70,16 +71,17 @@
                 android:id="@+id/buttons1_5"
                 android:layout_width="500dp"
                 android:layout_height="100dp"
-                android:layout_alignStart="@+id/viewScreen"
-                android:layout_below="@+id/viewScreen">
+                android:layout_below="@+id/viewScreen"
+                android:layout_alignLeft="@+id/viewScreen"
+                android:layout_alignStart="@+id/viewScreen">
 
                 <Button
                     android:id="@+id/number3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:text="3" />
+                    android:text="3"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
 
                 <Button
                     android:id="@+id/number4"

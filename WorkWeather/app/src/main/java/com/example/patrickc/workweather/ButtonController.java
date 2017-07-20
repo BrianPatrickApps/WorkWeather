@@ -118,6 +118,7 @@ public class ButtonController {
             Log.d("BB",query);
             //Toast.makeText(context, "Added", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(context, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
         }
 

@@ -47,14 +47,7 @@ public class MainActivity extends AppCompatActivity {
         //Button but = (Button)findViewById(R.id.a1);
         final Button but2 = (Button)findViewById(R.id.loginButton);
         changetoNurses();
-        but2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changetoNurses();
-                but2.setEnabled(false);
-                but2.setVisibility(View.GONE);
-            }
-        });
+        but2.setOnClickListener(click);
         db = new Database(this);
 
         //Nurse Images
@@ -83,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         counter = new Counter();
 
         viewController = new ViewController(rainOverlay,weather,nurseLayout,backLayout);
-        checkWeather();
+        //checkWeather();
 
     }
 
@@ -96,7 +89,12 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
 
     }
-
+protected View.OnClickListener click = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        changetoNurses();
+    }
+};
     protected void changetoNurses(){
         Fragment frag;
         FragmentManager fm = getSupportFragmentManager();

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class Menu_Login extends Fragment {
     TextView idScreen;
     int idNumber=000000;
     String idHolder = "";
+    RelativeLayout master;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,8 @@ public class Menu_Login extends Fragment {
          view = inflater.inflate(R.layout.fragment_menu__login, container, false);
 
         db = new Database(getActivity().getApplicationContext());
+
+        master=(RelativeLayout)view.findViewById(R.id.MenuLoginScreen);
 
         b1 = (Button)view.findViewById(R.id.number1);
         b2 = (Button)view.findViewById(R.id.number2);
@@ -193,7 +197,9 @@ public class Menu_Login extends Fragment {
             if(id == 311997){
                 Intent i = new Intent(getActivity().getApplicationContext(), DataScreen.class);
                 getActivity().startActivity(i);
+                master.setVisibility(View.GONE);
             }
+
         }
     };
 
